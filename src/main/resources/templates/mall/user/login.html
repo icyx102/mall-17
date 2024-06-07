@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>SkyMall | Mall</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}"/>
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css"/>
+    <script th:src="@{/layui/jquery-3.2.1.min.js}"></script>
+    <script th:src="@{/layui/layui.js}"></script>
+    <style>
+
+    </style>
+</head>
+<body class="site-home">
+<!-- Header Module -->
+<div th:replace="~{mall/common::head}"></div>
+<div class="layui-container" id="content">
+    <div class="layui-row" style="margin-top: 10px;">
+        <div id="cont" class="layui-col-xs12 layui-col-sm12 layui-col-md12 smaller">
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend>Welcome to Login</legend>
+                <div class="layui-field-box smaller">
+                    <form class="layui-form" action="login.do">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">Username:</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="username" required="required" lay-verify="required"
+                                       placeholder="Please enter username"
+                                       autocomplete="off" class="layui-input"/>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">Password:</label>
+                            <div class="layui-input-block">
+                                <input type="password" name="password" required="required" lay-verify="required"
+                                       placeholder="Please enter password"
+                                       autocomplete="off" class="layui-input"/>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn layui-btn-lg layui-btn-radius layui-btn-danger"
+                                        lay-submit="lay-submit" lay-filter="formDemo">Login
+                                </button>
+                                <button type="reset" class="layui-btn layui-btn-lg layui-btn-radius layui-btn-primary">
+                                    Reset
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <script>
+        //        <![CDATA[
+        // Load the layui form module
+        layui.use('form', function () {
+            var form = layui.form;
+        });
+        // Optimize display for mobile devices
+        var device = layui.device();
+        if (device.weixin || device.ios or device.android) {
+            $("#cont").removeClass("smaller");
+        }
+        //        ]]>
+    </script>
+</div>
+<!-- Footer -->
+<div th:replace="~{mall/common::foot}"></div>
+</body>
+</html>
